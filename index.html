@@ -436,6 +436,18 @@
         }
         .service-card:hover .service-icon::after { opacity: 1; }
 
+        .category-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--text-dim);
+            margin-bottom: 1.2rem;
+            padding-left: 0.25rem;
+            border-left: 2px solid var(--gradient-1);
+            padding-left: 0.75rem;
+        }
+
         .si-blue { background: rgba(59,130,246,0.1); }
         .si-blue::after { background: rgba(59,130,246,0.05); }
         .si-emerald { background: rgba(16,185,129,0.1); }
@@ -584,6 +596,16 @@
             background: var(--surface-2);
             transform: translateY(-2px);
         }
+        .stack-category {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-dim);
+            margin-top: 1.5rem;
+            margin-bottom: 0.6rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .stack-category:first-of-type { margin-top: 0; }
 
         /* ═══════ TESTIMONIAL / APPROACH ═══════ */
         .approach-grid {
@@ -881,23 +903,35 @@
         <div class="marquee-item">Scraping</div>
         <div class="marquee-item">CRM</div>
         <div class="marquee-item">Outbound</div>
-        <div class="marquee-item">Dashboards</div>
+        <div class="marquee-item">Google Ads</div>
+        <div class="marquee-item">Meta Ads</div>
         <div class="marquee-item">Landing Pages</div>
         <div class="marquee-item">WhatsApp API</div>
-        <div class="marquee-item">Email Marketing</div>
         <div class="marquee-item">Automatización</div>
-        <div class="marquee-item">Lead Scoring</div>
-        <div class="marquee-item">Data Enrichment</div>
+        <div class="marquee-item">ERP</div>
+        <div class="marquee-item">Dashboards</div>
+        <div class="marquee-item">AI Agents</div>
+        <div class="marquee-item">SEO</div>
+        <div class="marquee-item">SaaS</div>
+        <div class="marquee-item">Video AI</div>
+        <div class="marquee-item">Copywriting</div>
+        <div class="marquee-item">Facturación</div>
         <div class="marquee-item">Scraping</div>
         <div class="marquee-item">CRM</div>
         <div class="marquee-item">Outbound</div>
-        <div class="marquee-item">Dashboards</div>
+        <div class="marquee-item">Google Ads</div>
+        <div class="marquee-item">Meta Ads</div>
         <div class="marquee-item">Landing Pages</div>
         <div class="marquee-item">WhatsApp API</div>
-        <div class="marquee-item">Email Marketing</div>
         <div class="marquee-item">Automatización</div>
-        <div class="marquee-item">Lead Scoring</div>
-        <div class="marquee-item">Data Enrichment</div>
+        <div class="marquee-item">ERP</div>
+        <div class="marquee-item">Dashboards</div>
+        <div class="marquee-item">AI Agents</div>
+        <div class="marquee-item">SEO</div>
+        <div class="marquee-item">SaaS</div>
+        <div class="marquee-item">Video AI</div>
+        <div class="marquee-item">Copywriting</div>
+        <div class="marquee-item">Facturación</div>
     </div>
 </div>
 
@@ -905,47 +939,140 @@
 <section id="servicios">
     <div class="section-container reveal">
         <div class="section-label">// Servicios</div>
-        <h2 class="section-title">Todo lo que necesitás<br>para vender más</h2>
+        <h2 class="section-title">Todo lo que tu empresa<br>necesita para crecer</h2>
         <p class="section-desc">
-            No entrego piezas sueltas. Construyo el sistema completo — integrado, automatizado y listo para escalar.
+            No entrego piezas sueltas. Construyo el ecosistema completo — adquisición, conversión, automatización, gestión y analytics. Todo integrado.
         </p>
 
+        <!-- CATEGORY: ADQUISICIÓN -->
+        <div class="category-label">Adquisición de clientes</div>
         <div class="services-grid">
             <div class="service-card">
                 <div class="service-icon si-blue">🔍</div>
                 <h3>Scraping & Data Mining</h3>
-                <p>Extraigo leads cualificados de registros públicos, Google Maps, directorios sectoriales y bases de datos. Datos limpios, verificados y listos para usar.</p>
-                <span class="service-tag">Adquisición</span>
-            </div>
-            <div class="service-card">
-                <div class="service-icon si-emerald">📊</div>
-                <h3>CRM a Medida</h3>
-                <p>Pipeline visual con kanban, lead scoring automático, historial de interacciones y seguimiento de cada oportunidad desde el primer contacto hasta el cierre.</p>
-                <span class="service-tag">Gestión</span>
+                <p>Extraigo leads cualificados de registros públicos, Google Maps, directorios sectoriales, cámaras empresariales y bases de datos. Datos limpios, enriquecidos y verificados.</p>
+                <span class="service-tag">Data</span>
             </div>
             <div class="service-card">
                 <div class="service-icon si-violet">📧</div>
                 <h3>Email Outbound</h3>
-                <p>Secuencias automatizadas multitouch con personalización dinámica, A/B testing, tracking de opens y clicks, y rotación de dominios para máxima entregabilidad.</p>
+                <p>Secuencias multitouch con personalización dinámica, A/B testing, tracking de opens y clicks, warmup de dominios y rotación para máxima entregabilidad.</p>
                 <span class="service-tag">Outreach</span>
             </div>
             <div class="service-card">
                 <div class="service-icon si-amber">💬</div>
                 <h3>WhatsApp Business API</h3>
-                <p>Templates aprobados, respuestas automatizadas, integración con CRM y secuencias de seguimiento que convierten conversaciones en reuniones.</p>
-                <span class="service-tag">Comunicación</span>
+                <p>Templates aprobados, chatbots automatizados, integración con CRM, seguimiento de conversaciones y secuencias que convierten chats en reuniones agendadas.</p>
+                <span class="service-tag">Messaging</span>
+            </div>
+        </div>
+
+        <!-- CATEGORY: MARKETING -->
+        <div class="category-label" style="margin-top:4rem;">Marketing & Paid Media</div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon si-rose">🎯</div>
+                <h3>Google Ads & SEM</h3>
+                <p>Campañas de búsqueda, display, YouTube y Performance Max. Estructura de cuentas, keyword research, ad copy, bidding automatizado y optimización de Quality Score.</p>
+                <span class="service-tag">Paid Search</span>
             </div>
             <div class="service-card">
-                <div class="service-icon si-rose">📈</div>
-                <h3>Dashboards Ejecutivos</h3>
-                <p>Visualización en tiempo real de métricas comerciales: pipeline, tasas de conversión, revenue forecast, performance por closer y ROI por canal.</p>
-                <span class="service-tag">Analytics</span>
+                <div class="service-icon si-blue">📱</div>
+                <h3>Meta & Social Ads</h3>
+                <p>Facebook, Instagram, TikTok y LinkedIn Ads. Audiencias lookalike, retargeting dinámico, creatividades que convierten y attribution multi-touch.</p>
+                <span class="service-tag">Paid Social</span>
             </div>
+            <div class="service-card">
+                <div class="service-icon si-emerald">🔎</div>
+                <h3>SEO & Content</h3>
+                <p>Auditoría técnica, keyword research, estrategia de contenido, link building y optimización on-page. Tráfico orgánico que crece mes a mes sin pagar por click.</p>
+                <span class="service-tag">Orgánico</span>
+            </div>
+        </div>
+
+        <!-- CATEGORY: CONVERSIÓN -->
+        <div class="category-label" style="margin-top:4rem;">Conversión & Ventas</div>
+        <div class="services-grid">
             <div class="service-card">
                 <div class="service-icon si-cyan">🚀</div>
-                <h3>Landing Pages & Ads</h3>
-                <p>Páginas de venta optimizadas para conversión, campañas de paid media en Google, Meta y LinkedIn, y estrategias de content marketing que atraen tráfico cualificado.</p>
+                <h3>Landing Pages</h3>
+                <p>Páginas de venta optimizadas para conversión con copy persuasivo, diseño mobile-first, formularios inteligentes y testing A/B continuo.</p>
                 <span class="service-tag">Conversión</span>
+            </div>
+            <div class="service-card">
+                <div class="service-icon si-emerald">📊</div>
+                <h3>CRM a Medida</h3>
+                <p>Pipeline visual con kanban, lead scoring automático, historial de interacciones, asignación de closers y seguimiento desde el primer contacto hasta el cierre.</p>
+                <span class="service-tag">Pipeline</span>
+            </div>
+            <div class="service-card">
+                <div class="service-icon si-violet">📅</div>
+                <h3>Sistema de Demos</h3>
+                <p>Booking automatizado de reuniones, formularios de calificación pre-demo, recordatorios por email y WhatsApp, y seguimiento post-call integrado al CRM.</p>
+                <span class="service-tag">Booking</span>
+            </div>
+        </div>
+
+        <!-- CATEGORY: AUTOMATIZACIÓN -->
+        <div class="category-label" style="margin-top:4rem;">Automatización & AI</div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon si-amber">⚡</div>
+                <h3>Workflows & Automatización</h3>
+                <p>Flujos automatizados con Make, n8n o código custom. Conectá tu CRM, email, WhatsApp, facturación y cualquier API en un sistema que opera solo.</p>
+                <span class="service-tag">Automation</span>
+            </div>
+            <div class="service-card">
+                <div class="service-icon si-rose">🤖</div>
+                <h3>Agentes de AI</h3>
+                <p>Chatbots inteligentes, asistentes de ventas con IA, generación de contenido automatizada, análisis de datos con LLMs y procesamiento de documentos.</p>
+                <span class="service-tag">AI</span>
+            </div>
+            <div class="service-card">
+                <div class="service-icon si-blue">🔗</div>
+                <h3>Integraciones</h3>
+                <p>Conecto cualquier herramienta que uses: Stripe, HubSpot, Slack, Google Sheets, Notion, Zapier, webhooks, APIs REST y bases de datos externas.</p>
+                <span class="service-tag">APIs</span>
+            </div>
+        </div>
+
+        <!-- CATEGORY: SOFTWARE -->
+        <div class="category-label" style="margin-top:4rem;">Software & Plataformas</div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon si-cyan">💻</div>
+                <h3>Desarrollo Web & Apps</h3>
+                <p>Aplicaciones web full-stack con Next.js, React, Node.js y Python. Desde MVPs hasta plataformas SaaS multi-tenant con auth, billing y admin panel.</p>
+                <span class="service-tag">Full-stack</span>
+            </div>
+            <div class="service-card">
+                <div class="service-icon si-emerald">🏢</div>
+                <h3>ERP & Gestión Interna</h3>
+                <p>Sistemas de gestión empresarial: facturación, recaudación, control de stock, gestión de equipos, reportes financieros y tableros de control operativo.</p>
+                <span class="service-tag">ERP</span>
+            </div>
+            <div class="service-card">
+                <div class="service-icon si-violet">📈</div>
+                <h3>Dashboards & BI</h3>
+                <p>Visualización en tiempo real de métricas de negocio: revenue, pipeline, tasas de conversión, forecast, performance por vendedor, CAC, LTV y ROI por canal.</p>
+                <span class="service-tag">Analytics</span>
+            </div>
+        </div>
+
+        <!-- CATEGORY: CONTENIDO -->
+        <div class="category-label" style="margin-top:4rem;">Contenido & Creativos</div>
+        <div class="services-grid" style="grid-template-columns: repeat(2, 1fr);">
+            <div class="service-card">
+                <div class="service-icon si-rose">🎬</div>
+                <h3>Video & Creativos con AI</h3>
+                <p>Videos de producto con AI, talking heads, creativos para ads, motion graphics y contenido visual para redes sociales. Producción rápida y escalable sin equipo de filmación.</p>
+                <span class="service-tag">Producción</span>
+            </div>
+            <div class="service-card">
+                <div class="service-icon si-amber">✍️</div>
+                <h3>Copywriting & Email Sequences</h3>
+                <p>Copy de venta directa, secuencias de nurturing, newsletters, scripts de venta, propuestas comerciales y contenido que convierte lectores en clientes.</p>
+                <span class="service-tag">Copy</span>
             </div>
         </div>
     </div>
@@ -1018,33 +1145,81 @@
             Cada proyecto usa las herramientas correctas. Sin dogmas, sin over-engineering — lo que funciona mejor para tu caso.
         </p>
 
+        <div class="stack-category">Desarrollo</div>
         <div class="stack-grid">
             <div class="stack-pill">Next.js</div>
             <div class="stack-pill">React</div>
             <div class="stack-pill">TypeScript</div>
             <div class="stack-pill">Node.js</div>
             <div class="stack-pill">Python</div>
+            <div class="stack-pill">Tailwind CSS</div>
+            <div class="stack-pill">Prisma</div>
+            <div class="stack-pill">tRPC</div>
+        </div>
+        <div class="stack-category">Infraestructura</div>
+        <div class="stack-grid">
             <div class="stack-pill">PostgreSQL</div>
             <div class="stack-pill">Supabase</div>
             <div class="stack-pill">Vercel</div>
+            <div class="stack-pill">Redis</div>
+            <div class="stack-pill">Docker</div>
+            <div class="stack-pill">AWS</div>
+            <div class="stack-pill">Cloudflare</div>
+            <div class="stack-pill">Git</div>
+        </div>
+        <div class="stack-category">Scraping & Data</div>
+        <div class="stack-grid">
             <div class="stack-pill">Puppeteer</div>
             <div class="stack-pill">Playwright</div>
             <div class="stack-pill">Cheerio</div>
+            <div class="stack-pill">Selenium</div>
+            <div class="stack-pill">Beautiful Soup</div>
+            <div class="stack-pill">Scrapy</div>
+        </div>
+        <div class="stack-category">AI & LLMs</div>
+        <div class="stack-grid">
             <div class="stack-pill">OpenAI API</div>
             <div class="stack-pill">Claude API</div>
-            <div class="stack-pill">Resend</div>
-            <div class="stack-pill">WhatsApp API</div>
-            <div class="stack-pill">Stripe</div>
-            <div class="stack-pill">Tailwind CSS</div>
-            <div class="stack-pill">Prisma</div>
-            <div class="stack-pill">Redis</div>
-            <div class="stack-pill">Docker</div>
+            <div class="stack-pill">LangChain</div>
+            <div class="stack-pill">Vercel AI SDK</div>
+            <div class="stack-pill">RAG</div>
+            <div class="stack-pill">AI Agents</div>
+        </div>
+        <div class="stack-category">Marketing & Ads</div>
+        <div class="stack-grid">
             <div class="stack-pill">Google Ads API</div>
             <div class="stack-pill">Meta Ads API</div>
+            <div class="stack-pill">TikTok Ads</div>
+            <div class="stack-pill">LinkedIn Ads</div>
+            <div class="stack-pill">Google Analytics</div>
+            <div class="stack-pill">GTM</div>
+            <div class="stack-pill">Hotjar</div>
+            <div class="stack-pill">Ahrefs</div>
+        </div>
+        <div class="stack-category">Comunicación & CRM</div>
+        <div class="stack-grid">
+            <div class="stack-pill">WhatsApp API</div>
             <div class="stack-pill">Callbell</div>
-            <div class="stack-pill">Make / n8n</div>
-            <div class="stack-pill">Git</div>
+            <div class="stack-pill">Resend</div>
+            <div class="stack-pill">SendGrid</div>
+            <div class="stack-pill">HubSpot</div>
+            <div class="stack-pill">Calendly API</div>
+        </div>
+        <div class="stack-category">Automatización & Pagos</div>
+        <div class="stack-grid">
+            <div class="stack-pill">Make</div>
+            <div class="stack-pill">n8n</div>
+            <div class="stack-pill">Zapier</div>
+            <div class="stack-pill">Stripe</div>
+            <div class="stack-pill">MercadoPago</div>
+            <div class="stack-pill">Webhooks</div>
+        </div>
+        <div class="stack-category">Diseño</div>
+        <div class="stack-grid">
             <div class="stack-pill">Figma</div>
+            <div class="stack-pill">Framer</div>
+            <div class="stack-pill">Midjourney</div>
+            <div class="stack-pill">Remotion</div>
         </div>
     </div>
 </section>
