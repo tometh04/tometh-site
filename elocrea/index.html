@@ -304,6 +304,24 @@
 </head>
 <body>
 
+<!-- PASSWORD GATE -->
+<div id="pw-gate" style="position:fixed;inset:0;z-index:9999;background:#0a0a0a;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1.5rem;">
+    <div style="text-align:center;">
+        <div style="font-size:1.1rem;font-weight:800;color:#fff;letter-spacing:-0.5px;margin-bottom:0.25rem;">ELO<span style="color:#E8611A;">CREA</span></div>
+        <div style="font-size:0.8rem;color:#666;">Documento protegido</div>
+    </div>
+    <form id="pw-form" style="display:flex;gap:0.5rem;" onsubmit="return checkPw()">
+        <input id="pw-input" type="password" placeholder="Contrasena" autofocus
+            style="padding:0.7rem 1rem;border-radius:10px;border:1px solid #333;background:#1a1a1a;color:#fff;font-size:0.9rem;font-family:inherit;width:220px;outline:none;">
+        <button type="submit"
+            style="padding:0.7rem 1.5rem;border-radius:10px;border:none;background:#E8611A;color:#fff;font-weight:700;font-size:0.9rem;cursor:pointer;font-family:inherit;">Entrar</button>
+    </form>
+    <div id="pw-error" style="color:#EF4444;font-size:0.8rem;display:none;">Contrasena incorrecta</div>
+</div>
+<script>
+function checkPw(){var p=document.getElementById('pw-input').value;if(p==='Elocrea'){document.getElementById('pw-gate').style.display='none';return false;}document.getElementById('pw-error').style.display='block';document.getElementById('pw-input').value='';document.getElementById('pw-input').focus();return false;}
+</script>
+
 <!-- NAV -->
 <nav class="nav">
     <div class="nav-logo">ELO<span>CREA</span> &times; Sistema Comercial</div>
