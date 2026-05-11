@@ -531,20 +531,32 @@ window.addEventListener('scroll',()=>{
         const cardEnd=(i+1)/cardCount;
         const cardProgress=Math.max(0,Math.min(1,(progress-cardStart)/(cardEnd-cardStart)));
 
-        if(i<cardCount-1){
-            // Cards stack: start at bottom, move up, then scale down when next card comes
-            const nextProgress=Math.max(0,Math.min(1,(progress-cardEnd)/((cardEnd+0.1)-cardEnd)));
-            const scale=1-nextProgress*0.05;
-            const yOffset=(1-cardProgress)*100;
-            const pushUp=nextProgress*20;
-            card.style.transform=`translateY(${yOffset-pushUp}px) scale(${scale})`;
-            card.style.opacity=1-nextProgress*0.3;
-        }else{
-            // Last card
-            const yOffset=(1-cardProgress)*100;
-            card.style.transform=`translateY(${yOffset}px) scale(1)`;
-            card.style.opacity=1;
+        // Card hasn't entered yet — hide it below
+        if(progress<cardStart){
+            card.style.transform='translateY(120%) scale(0.95)';
+            card.style.opacity='0';
+            card.style.zIndex=i+1;
+            return;
         }
+
+        // Card is actively entering (sliding up from bottom)
+        if(progress>=cardStart && progress<cardEnd){
+            const yOffset=(1-cardProgress)*100;
+            card.style.transform=`translateY(${yOffset}%) scale(1)`;
+            card.style.opacity='1';
+            card.style.zIndex=cardCount+i+1; // entering card is always on top
+            return;
+        }
+
+        // Card has settled — scale it down slightly as next cards arrive
+        const nextIdx=Math.min(cardCount-1,i+1);
+        const nextStart=nextIdx/cardCount;
+        const nextEnd=(nextIdx+1)/cardCount;
+        const nextProgress=Math.max(0,Math.min(1,(progress-nextStart)/(nextEnd-nextStart)));
+        const scale=1-nextProgress*0.05;
+        const pushUp=nextProgress*15;
+        card.style.transform=`translateY(-${pushUp}px) scale(${scale})`;
+        card.style.opacity=String(1-nextProgress*0.3);
         card.style.zIndex=i+1;
     });
 },{passive:true});
