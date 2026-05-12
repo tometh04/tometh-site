@@ -144,8 +144,8 @@ section{padding:8rem 2rem;position:relative}
 
 /* ══ STACKING CARDS (APPROACH) ══ */
 .stack-section{position:relative}
-.stack-sticky{position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center;perspective:1000px}
-.stack-card{position:absolute;width:min(800px,90vw);background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:3.5rem;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1),opacity 0.5s;will-change:transform}
+.stack-sticky{position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center;perspective:1000px;overflow:hidden}
+.stack-card{position:absolute;width:min(800px,90vw);background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:3.5rem;will-change:transform,opacity}
 .stack-card .number{font-family:'JetBrains Mono',monospace;font-size:4rem;font-weight:800;color:rgba(255,255,255,0.03);position:absolute;top:1.5rem;right:2rem;line-height:1}
 .stack-card h3{font-size:1.6rem;font-weight:800;margin-bottom:0.8rem;letter-spacing:-0.5px}
 .stack-card p{font-size:0.95rem;color:var(--text-muted);line-height:1.75;max-width:600px}
@@ -518,46 +518,66 @@ const stackSection=document.getElementById('enfoque');
 const stackCards=[document.getElementById('sc0'),document.getElementById('sc1'),document.getElementById('sc2'),document.getElementById('sc3')];
 const cardCount=stackCards.length;
 
-// Set section height
-stackSection.style.height=(cardCount*80+100)+'vh';
+// Set section height for enough scroll room
+stackSection.style.height=(cardCount*100+100)+'vh';
+
+// Initialize: hide all except first
+stackCards.forEach((card,i)=>{
+    if(i===0){
+        card.style.zIndex=cardCount;
+        card.style.transform='translateY(0) scale(1)';
+        card.style.opacity='1';
+    }else{
+        card.style.zIndex=cardCount+i;
+        card.style.transform='translateY(110vh)';
+        card.style.opacity='0';
+    }
+});
 
 window.addEventListener('scroll',()=>{
     const rect=stackSection.getBoundingClientRect();
     const sectionHeight=stackSection.offsetHeight-window.innerHeight;
+    if(sectionHeight<=0)return;
     const progress=Math.max(0,Math.min(1,-rect.top/sectionHeight));
 
     stackCards.forEach((card,i)=>{
-        const cardStart=i/cardCount;
-        const cardEnd=(i+1)/cardCount;
-        const cardProgress=Math.max(0,Math.min(1,(progress-cardStart)/(cardEnd-cardStart)));
+        // Each card gets its own segment of the scroll
+        const enter=(i)/(cardCount);      // when this card starts entering
+        const settle=(i+0.5)/(cardCount); // when this card is fully in
+        const exit=(i+1)/(cardCount);     // when next card starts covering
 
-        // Card hasn't entered yet — hide it below
-        if(progress<cardStart){
-            card.style.transform='translateY(120%) scale(0.95)';
-            card.style.opacity='0';
-            card.style.zIndex=i+1;
-            return;
+        if(i===0){
+            // First card is always visible, just scales down as others arrive
+            const shrink=Math.max(0,Math.min(1,(progress-exit)/((exit+0.25)-exit)));
+            const scale=1-shrink*0.06;
+            const moveUp=shrink*30;
+            card.style.transform=`translateY(-${moveUp}px) scale(${scale})`;
+            card.style.opacity=String(Math.max(0.4,1-shrink*0.6));
+            card.style.zIndex=1;
+        }else{
+            if(progress<enter){
+                // Not yet — completely hidden below
+                card.style.transform='translateY(110vh)';
+                card.style.opacity='0';
+                card.style.zIndex=i+1;
+            }else if(progress<settle){
+                // Entering — slide up from bottom
+                const t=(progress-enter)/(settle-enter);
+                const y=(1-t)*100;
+                card.style.transform=`translateY(${y}vh) scale(1)`;
+                card.style.opacity=String(t);
+                card.style.zIndex=cardCount+i;
+            }else{
+                // Settled — visible, may scale down when next card arrives
+                const nextEnter=(i+1)/cardCount;
+                const shrink=i<cardCount-1?Math.max(0,Math.min(1,(progress-nextEnter)/0.15)):0;
+                const scale=1-shrink*0.06;
+                const moveUp=shrink*30;
+                card.style.transform=`translateY(-${moveUp}px) scale(${scale})`;
+                card.style.opacity=String(Math.max(0.4,1-shrink*0.6));
+                card.style.zIndex=i+1;
+            }
         }
-
-        // Card is actively entering (sliding up from bottom)
-        if(progress>=cardStart && progress<cardEnd){
-            const yOffset=(1-cardProgress)*100;
-            card.style.transform=`translateY(${yOffset}%) scale(1)`;
-            card.style.opacity='1';
-            card.style.zIndex=cardCount+i+1; // entering card is always on top
-            return;
-        }
-
-        // Card has settled — scale it down slightly as next cards arrive
-        const nextIdx=Math.min(cardCount-1,i+1);
-        const nextStart=nextIdx/cardCount;
-        const nextEnd=(nextIdx+1)/cardCount;
-        const nextProgress=Math.max(0,Math.min(1,(progress-nextStart)/(nextEnd-nextStart)));
-        const scale=1-nextProgress*0.05;
-        const pushUp=nextProgress*15;
-        card.style.transform=`translateY(-${pushUp}px) scale(${scale})`;
-        card.style.opacity=String(1-nextProgress*0.3);
-        card.style.zIndex=i+1;
     });
 },{passive:true});
 
